@@ -19,6 +19,14 @@ jobs:
           java-version: '17'
       - name: Accept Android SDK licenses
         run: yes | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=/usr/local/lib/android/sdk --licenses >/dev/null 2>&1 || true
+      - name: Generate app/keystore.jks if missing
+        run: |
+          if [ ! -f app/keystore.jks ]; then
+            keytool -genkeypair -v -keystore app/keystore.jks \
+              -alias dirtyfrag -keyalg RSA -keysize 2048 -validity 10000 \
+              -storepass dirtyfrag -keypass dirtyfrag \
+              -dname "CN=DirtyFrag, OU=Android, O=Clean, L=City, S=State, C=US"
+          fi
       - name: Build Release APK
         run: chmod +x gradlew && ./gradlew :app:assembleRelease
       - name: Locate generated APK
