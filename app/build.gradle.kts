@@ -16,7 +16,7 @@ android {
         // every Android 12 phone out at install time for no reason.
         // This widens who can INSTALL, not who can root - the module table still bottoms out at
         // dfroot-android12-5.10.ko. See the 1.18 section of CHANGELOG.md.
-        minSdk = 31
+        minSdk = 29
         targetSdk = 37
         // 1.18 / 35, released as v1.18. The Build workflow scrapes release notes by matching the tag
         // against the CHANGELOG heading, so this version and `## 1.18` have to agree. The version pill,
