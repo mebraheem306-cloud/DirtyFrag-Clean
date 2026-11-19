@@ -93,7 +93,7 @@ static int __nocfi __init dfroot_init(void)
     path_put_fn   = (path_put_t)  get_addr("path_put");
     if (!kern_path_fn || !invalidate_fn || !path_put_fn) {
         pr_err("dfroot: cache drop symbols missing\n");
-    } else if (kern_path_fn("/apex/com.android.runtime/bin/crash_dump64",
+    } else if (kern_path_fn("/system/bin/crash_dump64",
                             LOOKUP_FOLLOW, &p)) {
         pr_err("dfroot: kern_path failed for crash_dump64\n");
     } else {

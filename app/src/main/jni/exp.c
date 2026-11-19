@@ -21,7 +21,7 @@
 
 #define eos(s) (s + strlen(s))
 
-static const char kCrashDump[] = "/apex/com.android.runtime/bin/crash_dump64";
+static const char kCrashDump[] = "/system/bin/crash_dump64";
 static char    *libcxx_ko_target;
 
 static int      g_encap_port;
